@@ -1,0 +1,1772 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="http://rtlcss.com/"
+
+    >rtlcss (v2.1.2)</a>
+</h1>
+<h4>Framework for transforming cascading style sheets (CSS) from left-to-right (LTR) to right-to-left (RTL)</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rtlcss">module rtlcss</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.rtlcss">
+            function <span class="apidocSignatureSpan"></span>rtlcss
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.configure">
+            function <span class="apidocSignatureSpan">rtlcss.</span>configure
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.process">
+            function <span class="apidocSignatureSpan">rtlcss.</span>process
+            <span class="apidocSignatureSpan">(css, options, plugins)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rtlcss.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rtlcss.</span>config_loader</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rtlcss.</span>state</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rtlcss.</span>util</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rtlcss.config">module rtlcss.config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.config.configure">
+            function <span class="apidocSignatureSpan">rtlcss.config.</span>configure
+            <span class="apidocSignatureSpan">(opts, plugins)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rtlcss.config_loader">module rtlcss.config_loader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.config_loader.load">
+            function <span class="apidocSignatureSpan">rtlcss.config_loader.</span>load
+            <span class="apidocSignatureSpan">(configFilePath, cwd, overrides)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rtlcss.state">module rtlcss.state</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.state.parse">
+            function <span class="apidocSignatureSpan">rtlcss.state.</span>parse
+            <span class="apidocSignatureSpan">(node, lazyResult, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.state.pop">
+            function <span class="apidocSignatureSpan">rtlcss.state.</span>pop
+            <span class="apidocSignatureSpan">(current)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.state.walk">
+            function <span class="apidocSignatureSpan">rtlcss.state.</span>walk
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rtlcss.state.</span>stack</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.rtlcss.util">module rtlcss.util</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.applyStringMap">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>applyStringMap
+            <span class="apidocSignatureSpan">(value, isUrl)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.complement">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>complement
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.configure">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>configure
+            <span class="apidocSignatureSpan">(configuration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.each">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>each
+            <span class="apidocSignatureSpan">(array, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.extend">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>extend
+            <span class="apidocSignatureSpan">(dest, src)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.guard">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>guard
+            <span class="apidocSignatureSpan">(what, who, indexed)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.guardFunctions">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>guardFunctions
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.guardHexColors">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>guardHexColors
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.isLastOfType">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>isLastOfType
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.negate">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>negate
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.negateAll">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>negateAll
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.regex">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>regex
+            <span class="apidocSignatureSpan">(what, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.regexDirective">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>regexDirective
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.restore">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>restore
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.restoreComments">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>restoreComments
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.restoreTokens">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>restoreTokens
+            <span class="apidocSignatureSpan">(state)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.save">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>save
+            <span class="apidocSignatureSpan">(what, who, replacement, restorer, exclude)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.saveComments">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>saveComments
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.saveTokens">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>saveTokens
+            <span class="apidocSignatureSpan">(value, excludeCalc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.swap">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>swap
+            <span class="apidocSignatureSpan">(value, a, b, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.swapLeftRight">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>swapLeftRight
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.swapLtrRtl">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>swapLtrRtl
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.trimDirective">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>trimDirective
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.unguard">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>unguard
+            <span class="apidocSignatureSpan">(state, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.unguardFunctions">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>unguardFunctions
+            <span class="apidocSignatureSpan">(state, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.rtlcss.util.unguardHexColors">
+            function <span class="apidocSignatureSpan">rtlcss.util.</span>unguardHexColors
+            <span class="apidocSignatureSpan">(state, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">rtlcss.util.</span>regexCache</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rtlcss" id="apidoc.module.rtlcss">module rtlcss</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.rtlcss" id="apidoc.element.rtlcss.rtlcss">
+        function <span class="apidocSignatureSpan"></span>rtlcss
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function creator() {
+  var transformer = initializer.apply(undefined, arguments);
+  transformer.postcssPlugin = name;
+  transformer.postcssVersion = new _processor2.default().version;
+  return transformer;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.configure" id="apidoc.element.rtlcss.configure">
+        function <span class="apidocSignatureSpan">rtlcss.</span>configure
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">configure = function (config) {
+  config = config || {}
+  return postcss([this(config.options, config.plugins)])
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!config) {
+  printWarning(&#x27;rtlcss: Warning! No config present, using defaults.&#x27;)
+  result = postcss([rtlcss]).process(data, opt)
+} else {
+  if (&#x27;map&#x27; in config === true &#x26;&#x26; input !== &#x27;-&#x27;) {
+    opt.map = config.map
+  }
+  result = postcss([rtlcss.<span class="apidocCodeKeywordSpan">configure</span>(config)]).process(data, opt)
+}
+
+if (output) {
+  var savePath = outputName
+  if (directory !== true) {
+    savePath = output
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.process" id="apidoc.element.rtlcss.process">
+        function <span class="apidocSignatureSpan">rtlcss.</span>process
+        <span class="apidocSignatureSpan">(css, options, plugins)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">process = function (css, options, plugins) {
+  return postcss([this(options, plugins)]).process(css).css
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var opt = { map: false }
+if (input !== &#x27;-&#x27;) {
+  opt.from = input
+  opt.to = output
+}
+if (!config) {
+  printWarning(&#x27;rtlcss: Warning! No config present, using defaults.&#x27;)
+  result = postcss([rtlcss]).<span class="apidocCodeKeywordSpan">process</span>(data, opt)
+} else {
+  if (&#x27;map&#x27; in config === true &#x26;&#x26; input !== &#x27;-&#x27;) {
+    opt.map = config.map
+  }
+  result = postcss([rtlcss.configure(config)]).process(data, opt)
+}
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rtlcss.config" id="apidoc.module.rtlcss.config">module rtlcss.config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.config.configure" id="apidoc.element.rtlcss.config.configure">
+        function <span class="apidocSignatureSpan">rtlcss.config.</span>configure
+        <span class="apidocSignatureSpan">(opts, plugins)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function main(opts, plugins) {
+  options = opts || {}
+  addKey(&#x27;autoRename&#x27;, false)
+  addKey(&#x27;autoRenameStrict&#x27;, false)
+  addKey(&#x27;blacklist&#x27;, {})
+  addKey(&#x27;clean&#x27;, true)
+  addKey(&#x27;greedy&#x27;, false)
+  addKey(&#x27;processUrls&#x27;, false)
+  addKey(&#x27;stringMap&#x27;, [])
+
+  // default strings map
+  if (Array.isArray(config.stringMap)) {
+    var hasLeftRight, hasLtrRtl
+    for (var x = 0; x &#x3c; config.stringMap.length; x++) {
+      var map = config.stringMap[x]
+      if (hasLeftRight &#x26;&#x26; hasLtrRtl) {
+        break
+      } else if (map.name === &#x27;left-right&#x27;) {
+        hasLeftRight = true
+      } else if (map.name === &#x27;ltr-rtl&#x27;) {
+        hasLtrRtl = true
+      }
+    }
+    if (!hasLeftRight) {
+      config.stringMap.push({
+        &#x27;name&#x27;: &#x27;left-right&#x27;,
+        &#x27;priority&#x27;: 100,
+        &#x27;exclusive&#x27;: false,
+        &#x27;search&#x27;: [&#x27;left&#x27;, &#x27;Left&#x27;, &#x27;LEFT&#x27;],
+        &#x27;replace&#x27;: [&#x27;right&#x27;, &#x27;Right&#x27;, &#x27;RIGHT&#x27;],
+        &#x27;options&#x27;: { &#x27;scope&#x27;: &#x27;*&#x27;, &#x27;ignoreCase&#x27;: false }
+      })
+    }
+    if (!hasLtrRtl) {
+      config.stringMap.push({
+        &#x27;name&#x27;: &#x27;ltr-rtl&#x27;,
+        &#x27;priority&#x27;: 100,
+        &#x27;exclusive&#x27;: false,
+        &#x27;search&#x27;: [&#x27;ltr&#x27;, &#x27;Ltr&#x27;, &#x27;LTR&#x27;],
+        &#x27;replace&#x27;: [&#x27;rtl&#x27;, &#x27;Rtl&#x27;, &#x27;RTL&#x27;],
+        &#x27;options&#x27;: { &#x27;scope&#x27;: &#x27;*&#x27;, &#x27;ignoreCase&#x27;: false }
+      })
+    }
+    config.stringMap.sort(function (a, b) { return a.priority - b.priority })
+  }
+
+  // plugins
+  config.plugins = []
+
+  if (Array.isArray(plugins)) {
+    if (!plugins.some(function (plugin) { return plugin.name === &#x27;rtlcss&#x27; })) {
+      config.plugins.push(corePlugin)
+    }
+    config.plugins = config.plugins.concat(plugins)
+  } else if (!plugins || plugins.name !== &#x27;rtlcss&#x27;) {
+    config.plugins.push(corePlugin)
+  }
+  config.plugins.sort(function (a, b) { return a.priority - b.priority })
+  return config
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!config) {
+  printWarning(&#x27;rtlcss: Warning! No config present, using defaults.&#x27;)
+  result = postcss([rtlcss]).process(data, opt)
+} else {
+  if (&#x27;map&#x27; in config === true &#x26;&#x26; input !== &#x27;-&#x27;) {
+    opt.map = config.map
+  }
+  result = postcss([rtlcss.<span class="apidocCodeKeywordSpan">configure</span>(config)]).process(data, opt)
+}
+
+if (output) {
+  var savePath = outputName
+  if (directory !== true) {
+    savePath = output
+  }
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rtlcss.config_loader" id="apidoc.module.rtlcss.config_loader">module rtlcss.config_loader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.config_loader.load" id="apidoc.element.rtlcss.config_loader.load">
+        function <span class="apidocSignatureSpan">rtlcss.config_loader.</span>load
+        <span class="apidocSignatureSpan">(configFilePath, cwd, overrides)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">load = function (configFilePath, cwd, overrides) {
+  if (configFilePath) {
+    return override(
+      JSON.parse(
+        stripJSONComments(
+          fs.readFileSync(configFilePath, &#x27;utf-8&#x27;).trim())), overrides)
+  }
+
+  var directory = cwd || process.cwd()
+  config = loadConfig(directory)
+  if (!config) {
+    var evns = [process.env.USERPROFILE, process.env.HOMEPATH, process.env.HOME]
+    for (var x = 0; x &#x3c; evns.length; x++) {
+      if (!evns[x]) {
+        continue
+      }
+      config = loadConfig(evns[x])
+      if (config) {
+        break
+      }
+    }
+  }
+
+  if (config) {
+    override(config, overrides)
+  }
+  return config
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  printInfo(&#x27;rtlcss version: &#x27; + require(&#x27;../package.json&#x27;).version)
+  shouldBreak = true
+  break
+case &#x27;-c&#x27;:
+case &#x27;--config&#x27;:
+  arg = args.shift()
+  try {
+    config = configLoader.<span class="apidocCodeKeywordSpan">load</span>(path.resolve(arg))
+  } catch (e) {
+    printError(&#x27;rtlcss: invalid config file. &#x27;, e)
+    shouldBreak = true
+    currentErrorcode = 1
+  }
+  break
+case &#x27;-d&#x27;:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rtlcss.state" id="apidoc.module.rtlcss.state">module rtlcss.state</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.state.parse" id="apidoc.element.rtlcss.state.parse">
+        function <span class="apidocSignatureSpan">rtlcss.state.</span>parse
+        <span class="apidocSignatureSpan">(node, lazyResult, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (node, lazyResult, callback) {
+  var current
+  var metadata = directiveParser(node)
+  if (metadata) {
+    if (!metadata.begin &#x26;&#x26; metadata.end) {
+      this.walk(function (item) {
+        if (metadata.name === item.metadata.name) {
+          this.pop(item)
+          current = {&#x27;metadata&#x27;: metadata, &#x27;directive&#x27;: item.directive, &#x27;source&#x27;: node, &#x27;preserve&#x27;: item.preserve}
+          return false
+        }
+      }.bind(this))
+    } else {
+      current = {&#x27;metadata&#x27;: metadata, &#x27;directive&#x27;: null, &#x27;source&#x27;: node, &#x27;preserve&#x27;: null}
+    }
+
+    if (current === undefined) {
+      lazyResult.warn(&#x27;found end &#x22;&#x27; + metadata.name + &#x27;&#x22; without a matching begin.&#x27;, {node: node})
+    } else if (callback(current)) {
+      this.stack.push(current)
+    } else if (!current.preserve) {
+      current.source.remove()
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var stripJSONComments = require(&#x27;strip-json-comments&#x27;)
+var config = {}
+var configSources = [&#x27;package.json&#x27;, &#x27;.rtlcssrc&#x27;, &#x27;.rtlcss.json&#x27;]
+
+module.exports.load = function (configFilePath, cwd, overrides) {
+if (configFilePath) {
+  return override(
+    JSON.<span class="apidocCodeKeywordSpan">parse</span>(
+      stripJSONComments(
+        fs.readFileSync(configFilePath, &#x27;utf-8&#x27;).trim())), overrides)
+}
+
+var directory = cwd || process.cwd()
+config = loadConfig(directory)
+if (!config) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.state.pop" id="apidoc.element.rtlcss.state.pop">
+        function <span class="apidocSignatureSpan">rtlcss.state.</span>pop
+        <span class="apidocSignatureSpan">(current)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pop = function (current) {
+  var index = this.stack.indexOf(current)
+  if (index !== -1) {
+    this.stack.splice(index, 1)
+  }
+  if (!current.preserve) {
+    current.source.remove()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+            })
+          } else {
+            // process only *.css
+            if (/\.(css)$/.test(file)) {
+// compute output directory
+var relativePath = path.relative(input, file).split(path.sep)
+relativePath.<span class="apidocCodeKeywordSpan">pop</span>()
+relativePath.push(path.basename(file).replace(&#x27;.css&#x27;, ext || &#x27;.rtl.css&#x27;))
+
+// set rtl file name
+var rtlFile = path.join(output, relativePath.join(path.sep))
+
+// create output directory if it does not exist
+var dirName = path.dirname(rtlFile)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.state.walk" id="apidoc.element.rtlcss.state.walk">
+        function <span class="apidocSignatureSpan">rtlcss.state.</span>walk
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">walk = function (callback) {
+  var len = this.stack.length
+  while (--len &#x3e; -1) {
+    if (!callback(this.stack[len])) {
+      break
+    }
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  &#x27;config&#x27;: configuration,
+  // provides access to utilities object
+  &#x27;util&#x27;: util.configure(configuration)
+}
+return function (css, result) {
+  var flipped = 0
+  var toBeRenamed = {}
+  css.<span class="apidocCodeKeywordSpan">walk</span>(function (node) {
+    var prevent = false
+    state.walk(function (current) {
+      // check if current directive is expecting this node
+      if (!current.metadata.blacklist &#x26;&#x26; current.directive.expect[node.type]) {
+        // perform action and prevent further processing if result equals true
+        if (current.directive.begin(node, current.metadata, context)) {
+          prevent = true
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.rtlcss.util" id="apidoc.module.rtlcss.util">module rtlcss.util</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.applyStringMap" id="apidoc.element.rtlcss.util.applyStringMap">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>applyStringMap
+        <span class="apidocSignatureSpan">(value, isUrl)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">applyStringMap = function (value, isUrl) {
+  var result = value
+  for (var x = 0; x &#x3c; config.stringMap.length; x++) {
+    var map = config.stringMap[x]
+    var options = this.extend(map.options, DEFAULT_STRING_MAP_OPTIONS)
+    if (options.scope === &#x27;*&#x27; || (isUrl &#x26;&#x26; options.scope === &#x27;url&#x27;) || (!isUrl &#x26;&#x26; options.scope === &#x27;selector&#x27;)) {
+      if (Array.isArray(map.search) &#x26;&#x26; Array.isArray(map.replace)) {
+        for (var mapIndex = 0; mapIndex &#x3c; map.search.length; mapIndex++) {
+          result = this.swap(result, map.search[mapIndex], map.replace[mapIndex % map.search.length], options)
+        }
+      } else {
+        result = this.swap(result, map.search, map.replace, options)
+      }
+      if (map.exclusive === true) {
+        break
+      }
+    }
+  }
+  return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    }
+    return false
+  }
+},
+&#x27;rename&#x27;: {
+  &#x27;expect&#x27;: {&#x27;rule&#x27;: true},
+  &#x27;begin&#x27;: function (node, metadata, context) {
+    node.selector = context.util.<span class="apidocCodeKeywordSpan">applyStringMap</span>(node.selector, false)
+    return false
+  },
+  &#x27;end&#x27;: function (node, context) {
+    return true
+  }
+},
+&#x27;raw&#x27;: {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.complement" id="apidoc.element.rtlcss.util.complement">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>complement
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">complement = function (value) {
+  var state = this.saveTokens(value)
+  state.value = state.value.replace(REGEX_COMPLEMENT, function (num) {
+    return REGEX_TOKEN_REPLACEMENT.test(num) ? num.replace(REGEX_TOKEN_REPLACEMENT, function (m) { return &#x27;(100% - &#x27; + m + &#x27;)&#x27; }) :
+100 - parseFloat(num, 10)
+  })
+  return this.restoreTokens(state)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x27;name&#x27;: &#x27;transform origin&#x27;,
+&#x27;expr&#x27;: /transform-origin/ig,
+&#x27;cache&#x27;: null,
+&#x27;flip&#x27;: function (value, context) {
+  if (value === &#x27;0&#x27;) {
+    value = &#x27;100%&#x27;
+  } else if (value.match(this.cache.percent)) {
+    value = context.util.<span class="apidocCodeKeywordSpan">complement</span>(value)
+  }
+  return value
+},
+&#x27;action&#x27;: function (prop, value, context) {
+  if (this.cache === null) {
+    this.cache = {
+      &#x27;match&#x27;: context.util.regex([&#x27;calc&#x27;, &#x27;percent&#x27;, &#x27;length&#x27;], &#x27;g&#x27;),
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.configure" id="apidoc.element.rtlcss.util.configure">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>configure
+        <span class="apidocSignatureSpan">(configuration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">configure = function (configuration) {
+  config = configuration
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (!config) {
+  printWarning(&#x27;rtlcss: Warning! No config present, using defaults.&#x27;)
+  result = postcss([rtlcss]).process(data, opt)
+} else {
+  if (&#x27;map&#x27; in config === true &#x26;&#x26; input !== &#x27;-&#x27;) {
+    opt.map = config.map
+  }
+  result = postcss([rtlcss.<span class="apidocCodeKeywordSpan">configure</span>(config)]).process(data, opt)
+}
+
+if (output) {
+  var savePath = outputName
+  if (directory !== true) {
+    savePath = output
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.each" id="apidoc.element.rtlcss.util.each">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>each
+        <span class="apidocSignatureSpan">(array, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">each = function (array, callback) {
+  for (var len = 0; len &#x3c; array.length; len++) {
+    if (callback(array[len]) === false) {
+      return false
+    }
+  }
+  return true
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+  break
+case &#x27;comment&#x27;:
+  state.parse(node, result, function (current) {
+    var push = true
+    if (current.directive === null) {
+      current.preserve = !context.config.clean
+      context.util.<span class="apidocCodeKeywordSpan">each</span>(context.config.plugins, function (plugin) {
+        var blacklist = context.config.blacklist[plugin.name]
+        if (blacklist &#x26;&#x26; blacklist[current.metadata.name] === true) {
+          current.metadata.blacklist = true
+          if (current.metadata.end) {
+            push = false
+          }
+          if (current.metadata.begin) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.extend" id="apidoc.element.rtlcss.util.extend">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>extend
+        <span class="apidocSignatureSpan">(dest, src)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">extend = function (dest, src) {
+  if (typeof dest === &#x27;undefined&#x27; || typeof dest !== &#x27;object&#x27;) {
+    dest = {}
+  }
+  for (var prop in src) {
+    if (!dest.hasOwnProperty(prop)) {
+      dest[prop] = src[prop]
+    }
+  }
+  return dest
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    return true
+  }
+},
+&#x27;options&#x27;: {
+  &#x27;expect&#x27;: {&#x27;self&#x27;: true},
+  &#x27;stack&#x27;: [],
+  &#x27;begin&#x27;: function (node, metadata, context) {
+    this.stack.push(util.<span class="apidocCodeKeywordSpan">extend</span>({}, context.config))
+    var options
+    try {
+      options = JSON.parse(metadata.param)
+    } catch (e) {
+      throw node.error(&#x27;Invlaid options object&#x27;, { &#x27;details&#x27;: e })
+    }
+    context.config = config.configure(options, context.config.plugins)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.guard" id="apidoc.element.rtlcss.util.guard">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>guard
+        <span class="apidocSignatureSpan">(what, who, indexed)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">guard = function (what, who, indexed) {
+  var state = {
+    value: who,
+    store: [],
+    offset: TOKEN_ID++,
+    token: CHAR_TOKEN_START + TOKEN_ID,
+    indexed: indexed === true
+  }
+  if (state.indexed === true) {
+    while (what.test(state.value)) {
+      state.value = state.value.replace(what, function (m) { state.store.push(m); return state.token + &#x27;:&#x27; + state.store.length +
+CHAR_TOKEN_END })
+    }
+  } else {
+    state.value = state.value.replace(what, function (m) { state.store.push(m); return state.token + CHAR_TOKEN_END })
+  }
+  return state
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return name + callback(value, name)
+      }
+      return name + value
+    })
+  }
+},
+guardHexColors: function (value) {
+  return this.<span class="apidocCodeKeywordSpan">guard</span>(REGEX_HEX_COLOR, value, true)
+},
+unguardHexColors: function (state, callback) {
+  return this.unguard(state, callback)
+},
+guardFunctions: function (value) {
+  return this.guard(REGEX_FUNCTION, value, true)
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.guardFunctions" id="apidoc.element.rtlcss.util.guardFunctions">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>guardFunctions
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">guardFunctions = function (value) {
+  return this.guard(REGEX_FUNCTION, value, true)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+&#x27;cache&#x27;: null,
+&#x27;action&#x27;: function (prop, value, context) {
+  if (this.cache === null) {
+    this.cache = {
+      &#x27;match&#x27;: /[^\s\uFFFD]+/g
+    }
+  }
+  var state = context.util.<span class="apidocCodeKeywordSpan">guardFunctions</span>(value)
+  var result = state.value.match(this.cache.match)
+  if (result &#x26;&#x26; result.length === 4 &#x26;&#x26; (state.store.length &#x3e; 0 || result[1] !== result[3])) {
+    var i = 0
+    state.value = state.value.replace(this.cache.match, function () {
+      return result[(4 - i++) % 4]
+    })
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.guardHexColors" id="apidoc.element.rtlcss.util.guardHexColors">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>guardHexColors
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">guardHexColors = function (value) {
+  return this.guard(REGEX_HEX_COLOR, value, true)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  &#x27;cache&#x27;: null,
+  &#x27;action&#x27;: function (prop, value, context) {
+    if (this.cache === null) {
+      this.cache = {
+        &#x27;replace&#x27;: /[^,]+/g
+      }
+    }
+    var colorSafe = context.util.<span class="apidocCodeKeywordSpan">guardHexColors</span>(value)
+    var funcSafe = context.util.guardFunctions(colorSafe.value)
+    funcSafe.value = funcSafe.value.replace(this.cache.replace, function (m) { return context.util.negate(m) })
+    colorSafe.value = context.util.unguardFunctions(funcSafe)
+    return { &#x27;prop&#x27;: prop, &#x27;value&#x27;: context.util.unguardHexColors(colorSafe) }
+  }
+},
+{
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.isLastOfType" id="apidoc.element.rtlcss.util.isLastOfType">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>isLastOfType
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">isLastOfType = function (node) {
+  var isLast = true
+  var next = node.next()
+  while (next) {
+    if (next &#x26;&#x26; next.type === node.type) {
+      isLast = false
+      break
+    }
+    next = next.next()
+  }
+  return isLast
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      // match found, break
+      return false
+    }
+  })
+})
+// if last decl, apply auto rename
+// decl. may be found inside @rules
+if (context.config.autoRename &#x26;&#x26; !flipped &#x26;&#x26; node.parent.type === &#x27;rule&#x27; &#x26;&#x26; context.util
+.<span class="apidocCodeKeywordSpan">isLastOfType</span>(node)) {
+  var renamed = context.util.applyStringMap(node.parent.selector)
+  if (context.config.autoRenameStrict === true) {
+    var pair = toBeRenamed[renamed]
+    if (pair) {
+      pair.selector = node.parent.selector
+      node.parent.selector = renamed
+    } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.negate" id="apidoc.element.rtlcss.util.negate">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>negate
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">negate = function (value) {
+  var state = this.saveTokens(value)
+  state.value = state.value.replace(REGEX_NEGATE_ONE, function (num) {
+    return REGEX_TOKEN_REPLACEMENT.test(num) ? num.replace(REGEX_TOKEN_REPLACEMENT, function (m) { return &#x27;(-1*&#x27; + m + &#x27;)&#x27; }) :
+parseFloat(num, 10) * -1
+  })
+  return this.restoreTokens(state)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    if (this.cache === null) {
+      this.cache = {
+        &#x27;replace&#x27;: /[^,]+/g
+      }
+    }
+    var colorSafe = context.util.guardHexColors(value)
+    var funcSafe = context.util.guardFunctions(colorSafe.value)
+    funcSafe.value = funcSafe.value.replace(this.cache.replace, function (m) { return context.util.<span class="apidocCodeKeywordSpan
+">negate</span>(m) })
+    colorSafe.value = context.util.unguardFunctions(funcSafe)
+    return { &#x27;prop&#x27;: prop, &#x27;value&#x27;: context.util.unguardHexColors(colorSafe) }
+  }
+},
+{
+  &#x27;name&#x27;: &#x27;transform origin&#x27;,
+  &#x27;expr&#x27;: /transform-origin/ig,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.negateAll" id="apidoc.element.rtlcss.util.negateAll">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>negateAll
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">negateAll = function (value) {
+  var state = this.saveTokens(value)
+  state.value = state.value.replace(REGEX_NEGATE_ALL, function (num) {
+    return REGEX_TOKEN_REPLACEMENT.test(num) ? num.replace(REGEX_TOKEN_REPLACEMENT, function (m) { return &#x27;(-1*&#x27; + m + &#x27;)&#x27; }) :
+parseFloat(num, 10) * -1
+  })
+  return this.restoreTokens(state)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      if (n.match(this.cache.matrix3D)) {
+        v = this.flipMatrix3D(v, context)
+      } else if (n.match(this.cache.matrix)) {
+        v = this.flipMatrix(v, context)
+      } else if (n.match(this.cache.rotate3D)) {
+        v = this.flipRotate3D(v, context)
+      } else if (n.match(this.cache.skewXY)) {
+        v = context.util.<span class="apidocCodeKeywordSpan">negateAll</span>(v)
+      } else if (n.match(this.cache.negatable)) {
+        v = context.util.negate(v)
+      }
+    }
+    return v
+  }.bind(this))
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.regex" id="apidoc.element.rtlcss.util.regex">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>regex
+        <span class="apidocSignatureSpan">(what, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">regex = function (what, options) {
+  what = what || []
+  var expression = &#x27;&#x27;
+  for (var x = 0; x &#x3c; what.length; x++) {
+    switch (what[x]) {
+      case &#x27;percent&#x27;:
+        expression += &#x27;|(&#x27; + PATTERN_NUMBER + &#x27;%)&#x27;
+        break
+      case &#x27;length&#x27;:
+        expression += &#x27;|(&#x27; + PATTERN_NUMBER + &#x27;)(?:ex|ch|r?em|vh|vw|vmin|vmax|px|mm|cm|in|pt|pc)?&#x27;
+        break
+      case &#x27;number&#x27;:
+        expression += &#x27;|(&#x27; + PATTERN_NUMBER + &#x27;)&#x27;
+        break
+      case &#x27;position&#x27;:
+        expression += &#x27;|(left|center|right|top|bottom)&#x27;
+        break
+      case &#x27;calc&#x27;:
+        expression += &#x27;|(calc&#x27; + PATTERN_TOKEN + &#x27;)&#x27;
+        break
+    }
+  }
+  return new RegExp(expression.slice(1), options)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    value = context.util.complement(value)
+  }
+  return value
+},
+&#x27;action&#x27;: function (prop, value, context) {
+  if (this.cache === null) {
+    this.cache = {
+      &#x27;match&#x27;: context.util.<span class="apidocCodeKeywordSpan">regex</span>([&#x27;calc&#x27;, &#x27;percent&#x27;, &#
+x27;length&#x27;], &#x27;g&#x27;),
+      &#x27;percent&#x27;: context.util.regex([&#x27;calc&#x27;, &#x27;percent&#x27;], &#x27;i&#x27;),
+      &#x27;xKeyword&#x27;: /(left|right)/i
+    }
+  }
+  if (value.match(this.cache.xKeyword)) {
+    value = context.util.swapLeftRight(value)
+  } else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.regexDirective" id="apidoc.element.rtlcss.util.regexDirective">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>regexDirective
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">regexDirective = function (name) {
+  // /(?:\/\*(?:!)?rtl:ignore(?::)?)([^]*?)(?:\*\/)/img
+  this.regexCache[name] = this.regexCache[name] || new RegExp(&#x27;(?:\\/\\*(?:!)?rtl:&#x27; + (name ? escapeRegExp(name) + &#x27;(?::)?&#x27; : &#x27;&#x27;) + &#x27;)([^]*?)(?:\\*\\/)&#x27;, &#x27;img&#x27;)
+  return this.regexCache[name]
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  break
+case &#x27;decl&#x27;:
+  // if broken by a matching value directive .. break
+  if (!context.util.each(context.config.plugins,
+      function (plugin) {
+        return context.util.each(plugin.directives.value, function (directive) {
+          if (node.raws.value &#x26;&#x26; node.raws.value.raw) {
+            var expr = context.util.<span class="apidocCodeKeywordSpan">regexDirective</span>(directive.name)
+            if (expr.test(node.raws.value.raw)) {
+              expr.lastIndex = 0
+              if (directive.action(node, expr, context)) {
+                if (context.config.clean) {
+                  node.value = node.raws.value.raw = context.util.trimDirective(node.raws.value.raw)
+                }
+                flipped++
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.restore" id="apidoc.element.rtlcss.util.restore">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>restore
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restore = function (state) {
+  var index = 0
+  var result = state.value.replace(state.restorer, function () {
+    return state.store[index++]
+  })
+  state.store.length = 0
+  return result
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  state.store.length = 0
+  return result
+},
+saveComments: function (value) {
+  return this.save(REGEX_COMMENT, value, CHAR_COMMENT_REPLACEMENT, REGEX_COMMENT_REPLACEMENT)
+},
+restoreComments: function (state) {
+  return this.<span class="apidocCodeKeywordSpan">restore</span>(state)
+},
+saveTokens: function (value, excludeCalc) {
+  return excludeCalc === true
+    ? this.save(REGEX_TOKENS_WITH_NAME, value, CHAR_TOKEN_REPLACEMENT, REGEX_TOKEN_REPLACEMENT, REGEX_CALC)
+    : this.save(REGEX_TOKENS, value, CHAR_TOKEN_REPLACEMENT, REGEX_TOKEN_REPLACEMENT)
+},
+restoreTokens: function (state) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.restoreComments" id="apidoc.element.rtlcss.util.restoreComments">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>restoreComments
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restoreComments = function (state) {
+  return this.restore(state)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            context.util.each(context.config.plugins, function (plugin) {
+return context.util.each(plugin.processors, function (directive) {
+  if (node.prop.match(directive.expr)) {
+    var raw = node.raws.value &#x26;&#x26; node.raws.value.raw ? node.raws.value.raw : node.value
+    var state = context.util.saveComments(raw)
+    var pair = directive.action(node.prop, state.value, context)
+    state.value = pair.value
+    pair.value = context.util.<span class="apidocCodeKeywordSpan">restoreComments</span>(state)
+    if (pair.prop !== node.prop || pair.value !== raw) {
+      flipped++
+      node.prop = pair.prop
+      node.value = pair.value
+    }
+    // match found, break
+    return false
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.restoreTokens" id="apidoc.element.rtlcss.util.restoreTokens">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>restoreTokens
+        <span class="apidocSignatureSpan">(state)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">restoreTokens = function (state) {
+  return this.restore(state)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        ? &#x27;100%&#x27;
+        : (parts[0].match(this.cache.percent)
+          ? context.util.complement(parts[0])
+          : context.util.swapLeftRight(parts[0]))
+      state.value = state.value.replace(this.cache.match, function () { return parts.shift() })
+    }
+  }
+  return util.<span class="apidocCodeKeywordSpan">restoreTokens</span>(state)
+},
+&#x27;update&#x27;: function (context, value, name) {
+  if (name.match(this.cache.gradient)) {
+    value = context.util.swapLeftRight(value)
+    if (value.match(this.cache.angle)) {
+      value = context.util.negate(value)
+    }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.save" id="apidoc.element.rtlcss.util.save">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>save
+        <span class="apidocSignatureSpan">(what, who, replacement, restorer, exclude)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">save = function (what, who, replacement, restorer, exclude) {
+  var state = {
+    value: who,
+    store: [],
+    replacement: replacement,
+    restorer: restorer
+  }
+  state.value = state.value.replace(what, function (c) {
+    if (exclude &#x26;&#x26; c.match(exclude)) {
+      return c
+    } else {
+      state.store.push(c); return state.replacement
+    }
+  })
+  return state
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var result = state.value.replace(state.restorer, function () {
+    return state.store[index++]
+  })
+  state.store.length = 0
+  return result
+},
+saveComments: function (value) {
+  return this.<span class="apidocCodeKeywordSpan">save</span>(REGEX_COMMENT, value, CHAR_COMMENT_REPLACEMENT, REGEX_COMMENT_REPLACEMENT
+)
+},
+restoreComments: function (state) {
+  return this.restore(state)
+},
+saveTokens: function (value, excludeCalc) {
+  return excludeCalc === true
+    ? this.save(REGEX_TOKENS_WITH_NAME, value, CHAR_TOKEN_REPLACEMENT, REGEX_TOKEN_REPLACEMENT, REGEX_CALC)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.saveComments" id="apidoc.element.rtlcss.util.saveComments">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>saveComments
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">saveComments = function (value) {
+  return this.save(REGEX_COMMENT, value, CHAR_COMMENT_REPLACEMENT, REGEX_COMMENT_REPLACEMENT)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      })
+    })) break
+// loop over all plugins/property processors
+context.util.each(context.config.plugins, function (plugin) {
+  return context.util.each(plugin.processors, function (directive) {
+    if (node.prop.match(directive.expr)) {
+      var raw = node.raws.value &#x26;&#x26; node.raws.value.raw ? node.raws.value.raw : node.value
+      var state = context.util.<span class="apidocCodeKeywordSpan">saveComments</span>(raw)
+      var pair = directive.action(node.prop, state.value, context)
+      state.value = pair.value
+      pair.value = context.util.restoreComments(state)
+      if (pair.prop !== node.prop || pair.value !== raw) {
+        flipped++
+        node.prop = pair.prop
+        node.value = pair.value
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.saveTokens" id="apidoc.element.rtlcss.util.saveTokens">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>saveTokens
+        <span class="apidocSignatureSpan">(value, excludeCalc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">saveTokens = function (value, excludeCalc) {
+  return excludeCalc === true
+    ? this.save(REGEX_TOKENS_WITH_NAME, value, CHAR_TOKEN_REPLACEMENT, REGEX_TOKEN_REPLACEMENT, REGEX_CALC)
+    : this.save(REGEX_TOKENS, value, CHAR_TOKEN_REPLACEMENT, REGEX_TOKEN_REPLACEMENT)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+},
+{
+  &#x27;name&#x27;: &#x27;background&#x27;,
+  &#x27;expr&#x27;: /background(-position(-x)?|-image)?$/i,
+  &#x27;cache&#x27;: null,
+  &#x27;flip&#x27;: function (value, context, isPosition) {
+    var state = util.<span class="apidocCodeKeywordSpan">saveTokens</span>(value, true)
+    var parts = state.value.match(this.cache.match)
+    if (parts &#x26;&#x26; parts.length &#x3e; 0) {
+      if (isPosition &#x26;&#x26; parts.length &#x3e;= 3) {
+        state.value = util.swapLeftRight(state.value)
+      } else {
+        parts[0] = parts[0] === &#x27;0&#x27;
+          ? &#x27;100%&#x27;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.swap" id="apidoc.element.rtlcss.util.swap">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>swap
+        <span class="apidocSignatureSpan">(value, a, b, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">swap = function (value, a, b, options) {
+  var expr = escapeRegExp(a) + &#x27;|&#x27; + escapeRegExp(b)
+  options = options || DEFAULT_STRING_MAP_OPTIONS
+  var greedy = options.hasOwnProperty(&#x27;greedy&#x27;) ? options.greedy : config.greedy
+  if (!greedy) {
+    expr = &#x27;\\b(&#x27; + expr + &#x27;)\\b&#x27;
+  }
+  var flags = options.ignoreCase ? &#x27;img&#x27; : &#x27;mg&#x27;
+  return value.replace(new RegExp(expr, flags), function (m) { return compare(m, a, options.ignoreCase) ? b : a })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  if (!greedy) {
+    expr = &#x27;\\b(&#x27; + expr + &#x27;)\\b&#x27;
+  }
+  var flags = options.ignoreCase ? &#x27;img&#x27; : &#x27;mg&#x27;
+  return value.replace(new RegExp(expr, flags), function (m) { return compare(m, a, options.ignoreCase) ? b : a })
+},
+swapLeftRight: function (value) {
+  return this.<span class="apidocCodeKeywordSpan">swap</span>(value, &#x27;left&#x27;, &#x27;right&#x27;)
+},
+swapLtrRtl: function (value) {
+  return this.swap(value, &#x27;ltr&#x27;, &#x27;rtl&#x27;)
+},
+applyStringMap: function (value, isUrl) {
+  var result = value
+  for (var x = 0; x &#x3c; config.stringMap.length; x++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.swapLeftRight" id="apidoc.element.rtlcss.util.swapLeftRight">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>swapLeftRight
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">swapLeftRight = function (value) {
+  return this.swap(value, &#x27;left&#x27;, &#x27;right&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.cache = {
+    &#x27;match&#x27;: context.util.regex([&#x27;calc&#x27;, &#x27;percent&#x27;, &#x27;length&#x27;], &#x27;g&#x27;),
+    &#x27;percent&#x27;: context.util.regex([&#x27;calc&#x27;, &#x27;percent&#x27;], &#x27;i&#x27;),
+    &#x27;xKeyword&#x27;: /(left|right)/i
+  }
+}
+if (value.match(this.cache.xKeyword)) {
+  value = context.util.<span class="apidocCodeKeywordSpan">swapLeftRight</span>(value)
+} else {
+  var state = context.util.guardFunctions(value)
+  var parts = state.value.match(this.cache.match)
+  if (parts &#x26;&#x26; parts.length &#x3e; 0) {
+    parts[0] = this.flip(parts[0], context)
+    state.value = state.value.replace(this.cache.match, function () { return parts.shift() })
+    value = context.util.unguardFunctions(state)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.swapLtrRtl" id="apidoc.element.rtlcss.util.swapLtrRtl">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>swapLtrRtl
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">swapLtrRtl = function (value) {
+  return this.swap(value, &#x27;ltr&#x27;, &#x27;rtl&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  ]
+},
+&#x27;processors&#x27;: [
+  {
+    &#x27;name&#x27;: &#x27;direction&#x27;,
+    &#x27;expr&#x27;: /direction/im,
+    &#x27;action&#x27;: function (prop, value, context) {
+      return { &#x27;prop&#x27;: prop, &#x27;value&#x27;: context.util.<span class="apidocCodeKeywordSpan">swapLtrRtl</span>(value
+) }
+    }
+  },
+  {
+    &#x27;name&#x27;: &#x27;left&#x27;,
+    &#x27;expr&#x27;: /left/im,
+    &#x27;action&#x27;: function (prop, value, context) {
+      return { &#x27;prop&#x27;: prop.replace(this.expr, function () { return &#x27;right&#x27; }), &#x27;value&#x27;: value }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.trimDirective" id="apidoc.element.rtlcss.util.trimDirective">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>trimDirective
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trimDirective = function (value) {
+  return value.replace(REGEX_DIRECTIVE, &#x27;&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                  return context.util.each(plugin.directives.value, function (directive) {
+if (node.raws.value &#x26;&#x26; node.raws.value.raw) {
+  var expr = context.util.regexDirective(directive.name)
+  if (expr.test(node.raws.value.raw)) {
+    expr.lastIndex = 0
+    if (directive.action(node, expr, context)) {
+      if (context.config.clean) {
+        node.value = node.raws.value.raw = context.util.<span class="apidocCodeKeywordSpan">trimDirective</span>(node.raws.value
+.raw)
+      }
+      flipped++
+      // break
+      return false
+    }
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.unguard" id="apidoc.element.rtlcss.util.unguard">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>unguard
+        <span class="apidocSignatureSpan">(state, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unguard = function (state, callback) {
+  if (state.indexed === true) {
+    var detokenizer = new RegExp(&#x27;(\\w*?)&#x27; + state.token + &#x27;:(\\d+)&#x27; + CHAR_TOKEN_END, &#x27;i&#x27;)
+    while (detokenizer.test(state.value)) {
+      state.value = state.value.replace(detokenizer, function (match, name, index) {
+        var value = state.store[index - 1]
+        if (typeof callback === &#x27;function&#x27;) {
+          return name + callback(value, name)
+        }
+        return name + value
+      })
+    }
+    return state.value
+  } else {
+    return state.value.replace(new RegExp(&#x27;(\\w*?)&#x27; + state.token + CHAR_TOKEN_END, &#x27;i&#x27;), function (match, name) {
+      var value = state.store.shift()
+      if (typeof callback === &#x27;function&#x27;) {
+        return name + callback(value, name)
+      }
+      return name + value
+    })
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    })
+  }
+},
+guardHexColors: function (value) {
+  return this.guard(REGEX_HEX_COLOR, value, true)
+},
+unguardHexColors: function (state, callback) {
+  return this.<span class="apidocCodeKeywordSpan">unguard</span>(state, callback)
+},
+guardFunctions: function (value) {
+  return this.guard(REGEX_FUNCTION, value, true)
+},
+unguardFunctions: function (state, callback) {
+  return this.unguard(state, callback)
+},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.unguardFunctions" id="apidoc.element.rtlcss.util.unguardFunctions">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>unguardFunctions
+        <span class="apidocSignatureSpan">(state, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unguardFunctions = function (state, callback) {
+  return this.unguard(state, callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var result = state.value.match(this.cache.match)
+    if (result &#x26;&#x26; result.length === 4 &#x26;&#x26; (state.store.length &#x3e; 0 || result[1] !== result[3])) {
+      var i = 0
+      state.value = state.value.replace(this.cache.match, function () {
+        return result[(4 - i++) % 4]
+      })
+    }
+    return { &#x27;prop&#x27;: prop, &#x27;value&#x27;: context.util.<span class="apidocCodeKeywordSpan">unguardFunctions</span>(
+state) }
+  }
+},
+{
+  &#x27;name&#x27;: &#x27;border radius&#x27;,
+  &#x27;expr&#x27;: /border-radius/ig,
+  &#x27;cache&#x27;: null,
+  &#x27;flip&#x27;: function (value) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.rtlcss.util.unguardHexColors" id="apidoc.element.rtlcss.util.unguardHexColors">
+        function <span class="apidocSignatureSpan">rtlcss.util.</span>unguardHexColors
+        <span class="apidocSignatureSpan">(state, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">unguardHexColors = function (state, callback) {
+  return this.unguard(state, callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        &#x27;replace&#x27;: /[^,]+/g
+      }
+    }
+    var colorSafe = context.util.guardHexColors(value)
+    var funcSafe = context.util.guardFunctions(colorSafe.value)
+    funcSafe.value = funcSafe.value.replace(this.cache.replace, function (m) { return context.util.negate(m) })
+    colorSafe.value = context.util.unguardFunctions(funcSafe)
+    return { &#x27;prop&#x27;: prop, &#x27;value&#x27;: context.util.<span class="apidocCodeKeywordSpan">unguardHexColors</span>(
+colorSafe) }
+  }
+},
+{
+  &#x27;name&#x27;: &#x27;transform origin&#x27;,
+  &#x27;expr&#x27;: /transform-origin/ig,
+  &#x27;cache&#x27;: null,
+  &#x27;flip&#x27;: function (value, context) {
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
